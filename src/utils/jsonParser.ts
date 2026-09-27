@@ -2,9 +2,7 @@ import fs from 'fs';
 import logger from './logger';
 
 // Read and parse a JSON file into a JavaScript object
-export const parseJSON = (
-  filePath: string
-): Promise<Record<string, unknown>> => {
+export const parseJSON = (filePath: string): Promise<Record<string, unknown>> => {
   return new Promise((resolve, reject) => {
     fs.readFile(filePath, 'utf-8', (err, data) => {
       if (err) {
