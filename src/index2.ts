@@ -2,7 +2,7 @@
 import path from 'path';
 import {parseCSV} from './utils/parser';
 import logger from "./utils/logger";
-const filePath = path.resolve(__dirname, './data/car-sales.csv');
+const filePath = path.resolve(__dirname, './data/cake orders.csv');
 
 async function main() {
     try {
