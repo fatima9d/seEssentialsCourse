@@ -20,7 +20,6 @@ export const parseCSV = (filePath: string): Promise<string[][]> => {
     readStream.on('end', () => {
       resolve(results); // Resolve the promise with parsed data when done
     });
-
     readStream.on('error', (error) => {
       logger.error("Error while reading the stream of file %s, $o", filePath, error);
       reject(error); // Reject the promise if an error occurs
