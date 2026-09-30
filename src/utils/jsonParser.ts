@@ -14,7 +14,6 @@ export const parseJSON = (filePath: string): Promise<Record<string, unknown>> =>
       try {
         // Convert JSON text into a JavaScript object
         const javascriptObject = JSON.parse(data) as Record<string, unknown>;
-
         logger.info(`Successfully parsed JSON file: ${filePath}`);
         resolve(javascriptObject);
       } catch (error) {
