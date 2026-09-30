@@ -14,7 +14,6 @@ export const parseXML = (filePath: string): Promise<unknown> => {
         reject(error);
         return;
       }
-
       try {
         const parser = new XMLParser();
         const parsedData = parser.parse(data);
