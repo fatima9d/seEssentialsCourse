@@ -8,6 +8,5 @@ describe('XML Parser', () => {
     fs.writeFileSync('./src/data/toy orders-parsed.json', JSON.stringify(result, null, 2));
 
     console.log('XML parsed and saved successfully!');
-
   });
 });
