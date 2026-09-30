@@ -7,10 +7,7 @@ export const parseXML = (filePath: string): Promise<unknown> => {
     fs.readFile(filePath, { encoding: 'utf-8' }, (error, data) => {
       if (error) {
         logger.error(
-          'Error while reading XML file %s: %o',
-          filePath,
-          error
-        );
+          'Error while reading XML file %s: %o',  filePath, error  );
         reject(error);
         return;
       }
@@ -20,11 +17,7 @@ export const parseXML = (filePath: string): Promise<unknown> => {
 
         resolve(parsedData);
       } catch (error) {
-        logger.error(
-          'Error while parsing XML file %s: %o',
-          filePath,
-          error
-        );
+        logger.error('Error while parsing XML file %s: %o',  filePath, error );
         reject(error);
       }
     });
