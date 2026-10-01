@@ -7,4 +7,3 @@ describe('JSON Parser', () => {
     expect(typeof result).toBe('object');
   });
 });
-
