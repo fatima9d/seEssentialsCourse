@@ -1,6 +1,6 @@
 import { IItem, ItemCategory } from "./item.model";
 
-class Cake implements IItem {
+export class Cake implements IItem {
 
     private type: string;
     private flavor: string;
