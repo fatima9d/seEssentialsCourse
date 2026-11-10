@@ -22,6 +22,7 @@ export class Toy implements IItem {
         educational: string,
         price: number,
         quantity: number
+        
     ) {
 
         this.orderId = orderId;
