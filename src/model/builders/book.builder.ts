@@ -4,7 +4,6 @@ import { Book } from "../book.model";
 
 export class BookBuilder {
 
-    private orderId!: string;
     private bookTitle!: string;
     private author!: string;
     private genre!: string;
@@ -16,10 +15,6 @@ export class BookBuilder {
     private price!: number;
     private quantity!: number;
 
-    setOrderId(orderId: string): BookBuilder {
-        this.orderId = orderId;
-        return this;
-    }
 
     setBookTitle(bookTitle: string): BookBuilder {
         this.bookTitle = bookTitle;
@@ -74,7 +69,6 @@ export class BookBuilder {
     build(): Book {
 
         const requiredProperties = [
-            this.orderId,
             this.bookTitle,
             this.author,
             this.genre,
@@ -95,7 +89,6 @@ export class BookBuilder {
         }
 
         return new Book(
-            this.orderId,
             this.bookTitle,
             this.author,
             this.genre,
