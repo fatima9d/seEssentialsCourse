@@ -11,7 +11,6 @@ export class Toy implements IItem {
     private educational: string;
     private price: number;
     private quantity: number;
-
     constructor(
         orderId: string,
         type: string,
