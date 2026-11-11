@@ -2,7 +2,6 @@ import { IItem, ItemCategory } from "./item.model";
 
 export class Book implements IItem {
 
-    
     private orderId: string;
     private bookTitle: string;
     private author: string;
