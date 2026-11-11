@@ -19,6 +19,8 @@ export class CSVCakeMapper implements IMapper<string[], Cake>{
         .setAllergies(data[12])
         .setSpecialIngredients(data[13])
         .setPackagingType(data[14])
+        .setPrice(data[15])
+        .setQuantity(data[16])
         .build();
     }
 }
