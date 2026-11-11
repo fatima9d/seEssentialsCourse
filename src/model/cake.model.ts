@@ -2,6 +2,7 @@ import { IItem, ItemCategory } from "./item.model";
 
 export class Cake implements IItem {
 
+    
     private type: string;
     private flavor: string;
     private filling: string;
