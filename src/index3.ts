@@ -9,7 +9,6 @@ async function main() {
     .setCustomMessage("customMessage").setShape("shape").setAllergies("allergies")
     .setSpecialIngredients("specialIngredients").setPackagingType("packagingType");
     const cake = cakeBuilder.build();
-
     console.log(cake);
 }
 main();
