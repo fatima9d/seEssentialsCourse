@@ -6,7 +6,6 @@ export interface IOrder {
     getQuantity(): number;
     getId(): string;
 }
-
 export class Order implements IOrder {
 
     constructor(
