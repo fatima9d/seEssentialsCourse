@@ -16,6 +16,8 @@ export class CakeBuilder {
     private allergies!: string;
     private specialIngredients!: string;
     private packagingType!: string;
+    private price!: string;
+    private quantity!: string;
 
     public static newBuilder(): CakeBuilder{
         return new CakeBuilder();
@@ -89,6 +91,15 @@ export class CakeBuilder {
         this.packagingType = packagingType;
          return this;
     }
+    setPrice(price: string): CakeBuilder {
+        this.price = price;
+         return this;
+    }
+
+    setQuantity(quantity: string): CakeBuilder {
+        this.quantity = quantity;
+         return this;
+    }
 
 
     build(): Cake {
@@ -105,9 +116,10 @@ export class CakeBuilder {
             this.shape,
             this.allergies,
             this.specialIngredients,
-            this.packagingType
+            this.packagingType,
+            this.price,
+            this.quantity
         ];
-
         for (const property of requiredProperties) {
             if (!property) {
                 logger.error("Missing required properties, could not build a cake"); 
@@ -128,7 +140,9 @@ export class CakeBuilder {
                 this.customMessage,
                 this.allergies,
                 this.specialIngredients,
-                this.packagingType);
+                this.packagingType,
+                this.price,
+                this.quantity);
         }
 
 
