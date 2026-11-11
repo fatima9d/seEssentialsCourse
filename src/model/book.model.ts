@@ -2,7 +2,6 @@ import { IItem, ItemCategory } from "./item.model";
 
 export class Book implements IItem {
 
-    private orderId: string;
     private bookTitle: string;
     private author: string;
     private genre: string;
@@ -15,7 +14,6 @@ export class Book implements IItem {
     private quantity: number;
 
     constructor(
-        orderId: string,
         bookTitle: string,
         author: string,
         genre: string,
@@ -28,7 +26,7 @@ export class Book implements IItem {
         quantity: number
     ) {
 
-        this.orderId = orderId;
+     
         this.bookTitle = bookTitle;
         this.author = author;
         this.genre = genre;
@@ -44,10 +42,6 @@ export class Book implements IItem {
 
     getCategory(): ItemCategory {
         return ItemCategory.BOOK;
-    }
-
-    getOrderId(): string {
-        return this.orderId;
     }
 
     getBookTitle(): string {
