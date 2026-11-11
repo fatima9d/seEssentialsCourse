@@ -4,7 +4,6 @@ import { Toy } from "../toy.model";
 
 export class ToyBuilder {
 
-    private orderId!: string;
     private type!: string;
     private ageGroup!: string;
     private brand!: string;
@@ -14,10 +13,7 @@ export class ToyBuilder {
     private price!: number;
     private quantity!: number;
 
-    setOrderId(orderId: string): ToyBuilder {
-        this.orderId = orderId;
-        return this;
-    }
+  
 
     setType(type: string): ToyBuilder {
         this.type = type;
@@ -62,7 +58,6 @@ export class ToyBuilder {
     build(): Toy {
 
         const requiredProperties = [
-            this.orderId,
             this.type,
             this.ageGroup,
             this.brand,
@@ -81,7 +76,6 @@ export class ToyBuilder {
         }
 
         return new Toy(
-            this.orderId,
             this.type,
             this.ageGroup,
             this.brand,
