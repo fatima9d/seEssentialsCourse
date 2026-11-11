@@ -1,13 +1,12 @@
 import { IItem } from "./item.model";
 
-export interface Order {
+export interface IOrder {
     getItem(): IItem;
     getPrice(): number;
     getQuantity(): number;
-    getId(): String;
+    getId(): string;
 }
-
-export class Order implements Order {
+export class Order implements IOrder {
 
     constructor(
         private item: IItem,
