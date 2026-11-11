@@ -1,17 +1,15 @@
 import { CakeBuilder } from "./model/builders/cake.builder";
 import { BookBuilder } from "./model/builders/book.builder";
 import { ToyBuilder } from "./model/builders/toy.builder";
-
+import logger from './utils/logger';
+import { readCSVFile } from "./utils/parser";
+import { CSVCakeMapper } from "./mappers/Cake.mapper";
 async function main() {
 
-    const cakeBuilder = new CakeBuilder();
-
-    cakeBuilder.setType("type").setFlavor("flavor").setFilling("filling").setSize(10).setLayers(2)
-        .setFrostingType("frostingType").setFrostingFlavor("frostingFlavor")
-        .setDecorationType("decorationType").setDecorationColor("decorationColor")
-        .setCustomMessage("customMessage").setShape("shape").setAllergies("allergies")
-        .setSpecialIngredients("specialIngredients").setPackagingType("packagingType");
-    const cake = cakeBuilder.build();
+    const data = await readCSVFile("./src/data/cake orders.csv");
+    const mapper = new CSVCakeMapper();
+    const cakes = data.map(mapper.map);
+    logger.info("list of cakes: \n %o",cakes);
 
 
     const bookBuilder = new BookBuilder();
@@ -46,7 +44,7 @@ async function main() {
 
 
     // Display the created objects
-    console.log("Cake:", cake);
+    console.log("Cake:", cakes);
     console.log("Book:", book);
     console.log("Toy:", toy);
 }
