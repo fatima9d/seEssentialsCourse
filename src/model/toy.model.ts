@@ -2,7 +2,6 @@ import { IItem, ItemCategory } from "./item.model";
 
 export class Toy implements IItem {
 
-    private orderId: string;
     private type: string;
     private ageGroup: string;
     private brand: string;
@@ -11,8 +10,8 @@ export class Toy implements IItem {
     private educational: string;
     private price: number;
     private quantity: number;
+
     constructor(
-        orderId: string,
         type: string,
         ageGroup: string,
         brand: string,
@@ -23,7 +22,6 @@ export class Toy implements IItem {
         quantity: number
     ) {
 
-        this.orderId = orderId;
         this.type = type;
         this.ageGroup = ageGroup;
         this.brand = brand;
@@ -37,10 +35,6 @@ export class Toy implements IItem {
 
     getCategory(): ItemCategory {
         return ItemCategory.TOY;
-    }
-
-    getOrderId(): string {
-        return this.orderId;
     }
 
     getType(): string {
