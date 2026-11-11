@@ -16,8 +16,7 @@ async function main() {
 
     const bookBuilder = new BookBuilder();
 
-    bookBuilder.setOrderId("B001")
-        .setBookTitle("Edge of Eternity")
+    bookBuilder.setBookTitle("Edge of Eternity")
         .setAuthor("Ken Follett")
         .setGenre("Historical Fiction")
         .setFormat("Hardcover")
@@ -32,8 +31,7 @@ async function main() {
 
     const toyBuilder = new ToyBuilder();
 
-    toyBuilder.setOrderId("T001")
-        .setType("Building Blocks")
+    toyBuilder.setType("Building Blocks")
         .setAgeGroup("5-8 years")
         .setBrand("LEGO")
         .setMaterial("Plastic")
