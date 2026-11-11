@@ -17,60 +17,77 @@ export class CakeBuilder {
     private specialIngredients!: string;
     private packagingType!: string;
 
-    setType(type: string): void {
+    public static newBuilder(): CakeBuilder{
+        return new CakeBuilder();
+    }
+    setType(type: string): CakeBuilder {
         this.type = type;
+        return this;
     }
 
-    setFlavor(flavor: string): void {
+    setFlavor(flavor: string): CakeBuilder {
         this.flavor = flavor;
+        return this;
     }
 
-    setFilling(filling: string): void {
+    setFilling(filling: string): CakeBuilder {
         this.filling = filling;
+        return this;
     }
 
-    setSize(size: number): void {
+    setSize(size: number): CakeBuilder {
         this.size = size;
+        return this;
     }
 
-    setLayers(layers: number): void {
+    setLayers(layers: number): CakeBuilder {
         this.layers = layers;
+         return this;
     }
 
-    setFrostingType(frostingType: string): void {
+    setFrostingType(frostingType: string): CakeBuilder {
         this.frostingType = frostingType;
+        return this;
     }
 
-    setFrostingFlavor(frostingFlavor: string): void {
+    setFrostingFlavor(frostingFlavor: string): CakeBuilder {
         this.frostingFlavor = frostingFlavor;
+        return this;
     }
 
-    setDecorationType(decorationType: string): void {
+    setDecorationType(decorationType: string): CakeBuilder {
         this.decorationType = decorationType;
+        return this;
     }
 
-    setDecorationColor(decorationColor: string): void {
+    setDecorationColor(decorationColor: string): CakeBuilder {
         this.decorationColor = decorationColor;
+        return this;
     }
 
-    setCustomMessage(customMessage: string): void {
+    setCustomMessage(customMessage: string): CakeBuilder {
         this.customMessage = customMessage;
+         return this;
     }
 
-    setShape(shape: string): void {
+    setShape(shape: string): CakeBuilder {
         this.shape = shape;
+        return this;
     }
 
-    setAllergies(allergies: string): void {
+    setAllergies(allergies: string): CakeBuilder {
         this.allergies = allergies;
+         return this;
     }
 
-    setSpecialIngredients(specialIngredients: string): void {
+    setSpecialIngredients(specialIngredients: string): CakeBuilder {
         this.specialIngredients = specialIngredients;
+         return this;
     }
 
-    setPackagingType(packagingType: string): void {
+    setPackagingType(packagingType: string): CakeBuilder {
         this.packagingType = packagingType;
+         return this;
     }
 
 
