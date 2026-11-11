@@ -1,21 +1,15 @@
-import logger from "./utils/logger";
-import { parseCSV } from './utils/parser';
-import { Cake } from "./model/cake.model";
+import { CakeBuilder } from "./model/builders/cake.builder";
 
 async function main() {
+    const cakeBuilder = new CakeBuilder();
 
-        const cake = new Cake(
-            "type", "flavor", "filling",
-            10,
-            2,
-            "frostingType",
-            "frostingFlavor",
-            "decorationType",
-            "decorationColor",
-            "customMessage",
-            "shape",
-            "allergies",
-            "specialIngredients",
-            "packagingType");
-             console.log(cake);
- }
+    cakeBuilder.setType("type").setFlavor("flavor").setFilling("filling").setSize(10).setLayers(2)
+    .setFrostingType("frostingType").setFrostingFlavor("frostingFlavor")
+    .setDecorationType("decorationType").setDecorationColor("decorationColor")
+    .setCustomMessage("customMessage").setShape("shape").setAllergies("allergies")
+    .setSpecialIngredients("specialIngredients").setPackagingType("packagingType");
+    const cake = cakeBuilder.build();
+
+    console.log(cake);
+}
+main();
