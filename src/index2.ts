@@ -8,6 +8,7 @@ async function main() {
         const products = await parseCSV(filePath)
         for (const product of products) {
             logger.info(product + '\n');
+            
         }
     } catch(error) {
         logger.error(error)
