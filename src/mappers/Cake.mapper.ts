@@ -21,4 +21,5 @@ export class CSVCakeMapper implements IMapper<string[], Cake>{
         .setPackagingType(data[14])
         .build();
     }
+    
 }
