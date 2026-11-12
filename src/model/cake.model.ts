@@ -1,4 +1,4 @@
-import { IItem, ItemCategory } from "./item.model";
+import { IItem, ItemCategory } from "./Iitem";
 
 export class Cake implements IItem {
 
