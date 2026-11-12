@@ -13,8 +13,7 @@ export class ToyBuilder {
     private price!: number;
     private quantity!: number;
 
-  
-
+    
     setType(type: string): ToyBuilder {
         this.type = type;
         return this;
