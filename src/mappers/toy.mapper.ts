@@ -2,19 +2,19 @@ import { IMapper } from "../mappers/IMapper";
 import { ToyBuilder } from "../model/builders/toy.builder";
 import { Toy } from "../model/toy.model";
 
-export class XMLToyMapper implements IMapper<Record<string, unknown>, Toy> {
+export class XMLToyMapper implements IMapper<string[], Toy> {
 
-    map(data: Record<string, unknown>): Toy {
+    map(data: string[]): Toy {
 
         return new ToyBuilder()
-            .setType(String(data["Type"]))
-            .setAgeGroup(String(data["AgeGroup"]))
-            .setBrand(String(data["Brand"]))
-            .setMaterial(String(data["Material"]))
-            .setBatteryRequired(String(data["BatteryRequired"]))
-            .setEducational(String(data["Educational"]))
-            .setPrice(Number(data["Price"]))
-            .setQuantity(Number(data["Quantity"]))
+            .setType(data[1])
+            .setAgeGroup(data[2])
+            .setBrand(data[3])
+            .setMaterial(data[4])
+            .setBatteryRequired(data[5])
+            .setEducational(data[6])
+            .setPrice(parseInt(data[7]))
+            .setQuantity(parseInt(data[8]))
             .build();
     }
 }
