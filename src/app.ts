@@ -41,7 +41,7 @@ interface IValidator{
     validate(order:Order): void;
 }
 interface IPossibleItems{
-    getPossibleItems(): String[];
+    getPossibleItems(): string[];
 }
 export class Validator implements IValidator {
  
@@ -55,7 +55,7 @@ export class Validator implements IValidator {
     }
 }
 export class ItemValidator implements IValidator,IPossibleItems {
-    getPossibleItems(): String[] {
+    getPossibleItems(): string[] {
         return ItemValidator.possibleItems;
     }
      private static possibleItems=[

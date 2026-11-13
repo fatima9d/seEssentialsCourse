@@ -1,17 +1,37 @@
 
 import path from 'path';
-import {parseCSV} from './utils/parser';
+import {readCSVFile} from './utils/parser';
 import logger from "./utils/logger";
-const filePath = path.resolve(__dirname, './data/cake orders.csv');
+
+const csvfilePath = path.resolve(__dirname, './data/cake orders.csv');
+
+
 async function main() {
-    try {
-        const products = await parseCSV(filePath)
+
+  try {
+
+        const products = await readCSVFile(csvfilePath);
+        logger.info('CSV Parser Result:');
         for (const product of products) {
             logger.info(product + '\n');
         }
-    } catch(error) {
-        logger.error(error)
+
+
+    } catch (error) {
+        logger.error('Parser test failed:', error);
     }
+
+
+
 }
 
+
+
+
+
+
+  
+
+
 main();
+

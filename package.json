@@ -10,8 +10,8 @@
     "build": "tsc",
     "postbuild": "powershell -Command \"$size=(Get-ChildItem -Recurse build | Measure-Object -Property Length -Sum).Sum; Write-Host ('finished build with size: ' + [math]::Round($size/1KB,2) + ' KB')\"",
     "prestart": "npm run build",
-    "start": "node build/index.js",
-    "dev": "ts-node-dev --respawn src/index.ts",
+    "start": "node build/index5.js",
+    "dev": "ts-node-dev --respawn src/index5.ts",
     "test": "jest"
   },
   "keywords": [],

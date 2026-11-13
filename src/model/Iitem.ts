@@ -9,7 +9,6 @@ export enum ItemCategory {
 export interface IItem {
     getCategory(): ItemCategory;
 }
-
 export class Cake implements IItem {
 
     private type: string;
@@ -50,5 +49,4 @@ export class Cake implements IItem {
     getSize(): number {
         return this.size;
     }
- 
 }

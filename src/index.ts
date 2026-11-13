@@ -1,4 +1,4 @@
-import { FinanceCalculator, ItemValidator, MaxPriceValidator, OrderManagement, PremiumOrderManagment, PriceValidator, Validator } from "./app";
+import { FinanceCalculator, ItemValidator, MaxPriceValidator, OrderManagement, PriceValidator, Validator } from "./app";
 import logger from "./utils/logger";
 const orders = [
   { id: 1, item: "Sponge", price: 15 },

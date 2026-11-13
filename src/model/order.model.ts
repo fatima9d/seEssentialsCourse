@@ -1,4 +1,4 @@
-import { IItem } from "./item.model";
+import { IItem } from "./Iitem";
 
 export interface IOrder {
     getItem(): IItem;

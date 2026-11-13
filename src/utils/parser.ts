@@ -1,28 +1,46 @@
 // src/utils/parser.ts
-import fs from 'fs'; 
-import logger from './logger';
+import { promises as fs } from 'fs';
+import { parse as csvParse } from 'csv-parse';
+import { stringify as csvStringify } from 'csv-stringify';
 
-export const parseCSV = (filePath: string): Promise<string[][]> => {
-  return new Promise((resolve, reject) => {
-    const results: string[][] = []; // Store parsed CSV rows as arrays
-    const readStream = fs.createReadStream(filePath, { encoding: 'utf-8' }); // Create a readable stream for the file
+export async function readCSVFile(filePath: string, includeHeader: boolean = false): Promise<string[][]> {
 
-    readStream.on('data', (chunk: string) => {
-      // Process data chunks from the file
-      const lines = chunk.split('\n').filter(line => line.trim() !== ''); // Split data into lines and remove empty lines
-      lines.forEach((line) => {
-        const columns = line.split(',').map(value => value.trim().replace(/^"(.*)"$/, '$1')); 
-        // Split line into columns, trim spaces, and remove quotes
-        results.push(columns); // Add parsed row to results
+
+    const fileContent = await fs.readFile(filePath, 'utf-8');
+    return new Promise((resolve, reject) => {
+      csvParse(fileContent, {
+        trim: true,
+        skip_empty_lines: true
+      }, (err, records: string[][]) => {
+
+        if (err) {
+          reject(err);
+          return;
+        }
+
+        if (!includeHeader && records.length > 0) {
+          records.shift();
+        }
+
+        resolve(records);
       });
     });
+  
+}
 
-    readStream.on('end', () => {
-      resolve(results); // Resolve the promise with parsed data when done
+export async function writeCSVFile(filePath: string, data: string[][]): Promise<void> {
+
+    const csvContent = await new Promise<string>((resolve, reject) => {
+
+      csvStringify(data, (err, output) => {
+
+        if (err) reject(err);
+        resolve(output);
+      });
     });
-    readStream.on('error', (error) => {
-      logger.error("Error while reading the stream of file %s, $o", filePath, error);
-      reject(error); // Reject the promise if an error occurs
-    });
-  });
-};
+    await fs.writeFile(filePath, csvContent, 'utf-8');
+  
+
+
+
+}
